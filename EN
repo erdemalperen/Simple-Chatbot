@@ -1,0 +1,33 @@
+import random
+
+# Simple chatbot responses
+def chatbot_response(user_input):
+    user_input = user_input.lower()  # Convert user input to lowercase
+    # Responses based on keywords
+    if "hello" in user_input:
+        return random.choice(["Hello! How are you?", "Hi! How can I help you?", "Hello!"])
+    elif "how are you" in user_input:
+        return random.choice(["I'm good, thank you! How about you?", "I'm great, how about you?", "I'm doing well!"])
+    elif "what's your name" in user_input:
+        return random.choice(["I'm a chatbot!", "I don't have a name yet, but I can help you.", "I'm Chatbot, and you?"])
+    elif "what are you doing" in user_input:
+        return random.choice(["I'm chatting with you!", "I'm here to assist you.", "I'm having a conversation with you!"])
+    elif "goodbye" in user_input:
+        return "Goodbye! Take care!"
+    else:
+        return random.choice(["I didn't understand that, can you please repeat?", "I don't get it, please ask something else.", "I don't have information on that."])
+
+# Run the chatbot
+def start_chatbot():
+    print("Chatbot: Hello! You can chat with me. Type 'Goodbye' to exit.")
+    
+    while True:
+        user_input = input("You: ")
+        if "goodbye" in user_input.lower():
+            print("Chatbot: Goodbye! Take care!")
+            break
+        response = chatbot_response(user_input)
+        print("Chatbot:", response)
+
+# Start the chatbot
+start_chatbot()
