@@ -1,0 +1,33 @@
+import random
+
+# Basit bir chatbot yanıtları
+def chatbot_response(user_input):
+    user_input = user_input.lower()  # Kullanıcının girdisini küçük harfe çevir
+    # Anahtar kelimeye göre yanıtlar
+    if "merhaba" in user_input:
+        return random.choice(["Merhaba! Nasılsınız?", "Selam! Size nasıl yardımcı olabilirim?", "Merhaba!"])
+    elif "nasılsın" in user_input:
+        return random.choice(["İyiyim, teşekkürler! Siz nasılsınız?", "Harikayım, ya siz?", "İyiyim!"])
+    elif "adın ne" in user_input:
+        return random.choice(["Ben bir chatbot'um!", "Adım henüz yok ama size yardımcı olabilirim.", "Ben Chatbot, ya siz?"])
+    elif "ne yapıyorsun" in user_input:
+        return random.choice(["Sizinle konuşuyorum!", "Size yardımcı olmak için buradayım.", "Sohbet ediyorum!"])
+    elif "görüşürüz" in user_input:
+        return "Görüşmek üzere! Kendinize iyi bakın!"
+    else:
+        return random.choice(["Bunu anlamadım, tekrar edebilir misiniz?", "Anlamadım, lütfen başka bir şey sorun.", "Bu konu hakkında bilgim yok."])
+
+# Chatbot'u çalıştır
+def start_chatbot():
+    print("Chatbot: Merhaba! Benimle sohbet edebilirsin. 'Görüşürüz' yazarak çıkabilirsiniz.")
+    
+    while True:
+        user_input = input("Sen: ")
+        if "görüşürüz" in user_input.lower():
+            print("Chatbot: Görüşmek üzere!")
+            break
+        response = chatbot_response(user_input)
+        print("Chatbot:", response)
+
+# Chatbot'u başlat
+start_chatbot()
